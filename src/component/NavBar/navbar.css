@@ -1,11 +1,11 @@
 .nav-container{
     display: flex;
-    background-color: var(--color-gris-claro);
+    background-color: var(--color-gris-oscuro);
     gap: 20px;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    
+    border-bottom: 3px solid var(--color-azul-interactivo);
 }
 
 h1{
@@ -26,6 +26,11 @@ h1{
     color: var(--color-blanco);
     font-weight: bold;
     cursor: pointer;
+}
+
+.btn-login:hover, .btn-register:hover{
+    background-color: var(--color-azul-interactivo);
+    color: var(--color-blanco);
 }
 
 .btn-container{
