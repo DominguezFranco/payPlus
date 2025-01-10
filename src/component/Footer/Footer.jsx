@@ -11,7 +11,7 @@ function Footer() {
                 </div>
                 <div className="info-footer">
                     <h3>PayPlus</h3>
-                    <p>Los mejores productos de anime para ti</p>
+                    <p>La mejor billetera virtual para ti y tus amigos</p>
                 </div>
                 <div className="icons-footer">
                     <h3>Herramientas</h3>
@@ -22,7 +22,7 @@ function Footer() {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>© 2024 PayPlus. Todos los derechos reservados.</p>
+                <p>© 2025 PayPlus. Todos los derechos reservados.</p>
             </div>
         </footer>
     );
