@@ -9,7 +9,7 @@
 
 .content:first-child{
     background-image: url("../../assets/landing2-bg.svg") ;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
 }
@@ -17,7 +17,7 @@
 .content:last-child{  
     background-image: url("../../assets/landing-bg.svg") ;
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
     background-repeat: no-repeat;
 }
 
@@ -37,6 +37,7 @@
 .text-container{
     text-align: left;
     padding: 15px;    
+    margin: 200px 0 300px 100px
 }
 
 .landing-title{
@@ -44,7 +45,7 @@
     color: var(--color-negro-suave);
 }
 .landing-subtitle{
-    font-size: 20px;
+    font-size: 30px;
     color: var(--color-negro-suave);
     font-style: oblique;
 }
@@ -55,8 +56,8 @@
 
 
 .img-landing{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
 }
 
 .image-container{
