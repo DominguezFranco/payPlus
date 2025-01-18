@@ -1,21 +1,39 @@
 import React, { useState } from 'react';
 import './Login.css';
 
+
+
 const Login = ({ onClose }) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [dataForm, setDataForm] = useState({
+            username: '',
+            password: '',
+            email: ''
+        });
     
+    const [error, setError] = useState('');
+
+    const handleChangeInput = (e) => {
+        setDataForm({
+            ...dataForm, [e.target.name]: e.target.value
+        });
+    };
+
+
 
     const handleSubmit = (e) => {
     e.preventDefault();
-    if (username === '' || password === '') {
+    const { username, password, email } = dataForm;
+    if (username === '' || password === '' || email === '') {
         setError('Please fill in all fields');
     } else {
         setError('');
+
         onClose();
     }
+    console.log(dataForm);
+    
     };
+
     
     return (
     <>
@@ -29,18 +47,30 @@ const Login = ({ onClose }) => {
                     <label>Username</label>
                     <input
                         type="text"
-                        value={username}
+                        name="username"
+                        value={dataForm.username}
                         className='input-field'
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={handleChangeInput}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={dataForm.email}
+                        className='input-field'
+                        onChange={handleChangeInput}
                     />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
                     <input
                         type="password"
-                        value={password}
+                        name="password"
+                        value={dataForm.password}
                         className='input-field'
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={handleChangeInput}
                     />
                 </div>
                 <button type="submit" className="submit-btn">Submit</button>
