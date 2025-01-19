@@ -1,0 +1,87 @@
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+
+.register-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--color-dorado);
+    width: 100%;
+    max-width: 400px;
+    z-index: 20;
+}
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    background-color: var(--color-gris-oscuro);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.register-form h2{
+    color: var(--color-dorado);
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.register-form input{
+    width: 350px;
+    padding: 10px;    
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    font-size: 16px;
+    color: var(--color-gris-oscuro);
+    background-color: var(--color-blanco);
+}
+
+.register-form button{    
+    background-color: var(--color-dorado);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--color-blanco);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.register-form button:hover{
+    background-color: var(--color-azul-interactivo);
+}
+
+.register-form p{
+    color: var(--color-rojo-error);
+    margin-top: 10px;
+}
+
+.btn-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border : none;
+    background-color: transparent;
+    color: var(--color-gris-oscuro);
+    transition: color 0.3s;
+}

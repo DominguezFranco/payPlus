@@ -4,6 +4,7 @@ import './App.css'
 import NavBar from './component/NavBar/NavBar'
 import Landing from './component/Landing/Landing'
 import Footer from './component/Footer/Footer'
+import Register from './component/Register/Register'
 
 function App() {
   const [count, setCount] = useState(0)
