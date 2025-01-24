@@ -1,6 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState} from 'react'
+import { collection, addDoc} from 'firebase/firestore'
+import db from '../../db/db.js'
 import './register.css'
+import validateForm from '../utils/validateForm.js'
 
 const Register = ({onClose}) => {
 
@@ -11,7 +14,7 @@ const Register = ({onClose}) => {
     confirmPassword: ''
   });
 
-    const [registros, setRegistros] = useState([]);
+    const [idUsers, setIdUsers] = useState(null);
 
     const [error, setError] = useState('');
 
@@ -23,49 +26,33 @@ const Register = ({onClose}) => {
     };
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const { name, email, password, confirmPassword } = dataForm;
-        if (password !== confirmPassword) {
-            setError('Las contraseñas no coinciden');
-            return;
-        }
+        const users = {
+            username: dataForm.username,
+            email: dataForm.email,
+            password: dataForm.password}
 
-        else if (password.length < 6) {
-            setError('La contraseña debe tener al menos 6 caracteres');
-            return;
-        }
-
-        else if (!email.includes('@')) {
-            setError('El correo electrónico no es válido');
-            return;
-        }
-
-        else if (!name || !email || !password) {
-            setError('Todos los campos son obligatorios');
-            return;
-        }
-
-        else {
-            setError('');
-
-            onClose();
-        }
 
         console.log(dataForm);
 
-        const usuarioExistente = registros.find((registro) => registro.email === email);
+        const response = await validateForm(dataForm);
 
-        if (usuarioExistente) {
-            setError('El correo electrónico ya está registrado');
-            return;
+        if (response.status === 'success') {
+            uploadUsers(users);
+        }else {
+            setError(response.message);
         }
 
-        const nuevoUsuario = { name, email, password };
-
-        setRegistros([...registros, nuevoUsuario]);
-
+        
 };
+      const uploadUsers = (newUser) => {
+        const usersRef = collection(db, 'users');
+        addDoc(usersRef, newUser)
+          .then((response) => {
+            setIdUsers(response.id);
+          })
+      }
 
   return (
     <div className='register-container'>
@@ -74,12 +61,12 @@ const Register = ({onClose}) => {
       <h2>Registro</h2>
       {error && <p className="error">{error}</p>}
       <div>
-          <label htmlFor="name">Nombre</label>
+          <label htmlFor="username">Nombre</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={dataForm.name}
+            id="username"
+            name="username"
+            value={dataForm.username}
             onChange={handleChangeInput}
             required
           />
