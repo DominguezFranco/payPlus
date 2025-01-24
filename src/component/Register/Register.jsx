@@ -68,6 +68,7 @@ const Register = ({onClose}) => {
 };
 
   return (
+    <div className='login-overlay'>
     <div className='register-container'>
     <button className='btn-close' onClick={onClose}>X</button>
     <form className='register-form' onSubmit={handleSubmit}>
@@ -120,8 +121,9 @@ const Register = ({onClose}) => {
         <button type="submit" >Registrarse</button>
       </form>
     </div>
+  </div>
   );
 };
-   
+
 
 export default Register

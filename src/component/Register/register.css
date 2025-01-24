@@ -11,13 +11,13 @@
     z-index: 10;
 }
 
- 
+
 .register-container{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    background: #ffffff;
+    background: var(--color-gris-oscuro);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--color-dorado);
@@ -31,10 +31,8 @@
     flex-direction: column;
     align-items: center;    
     justify-content: center;
-    background-color: var(--color-gris-oscuro);
-    border-radius: 10px;
     padding: 30px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
 }
 
 .register-form h2{
@@ -82,6 +80,6 @@
     cursor: pointer;
     border : none;
     background-color: transparent;
-    color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
     transition: color 0.3s;
 }

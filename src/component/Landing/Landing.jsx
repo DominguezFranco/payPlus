@@ -1,35 +1,9 @@
 import React from 'react'
-import { useState } from 'react' 
 import './landing.css'
-import imageLanding1 from '/imageLanding1.png'
-import imageLanding2 from '/imageLanding2.png'
-import imageLanding3 from '/imageLanding3.png'
+
 
 const Landing = () => {
-    const images = [
-        imageLanding1,
-        imageLanding2,
-        imageLanding3
-    ]
-    const [currentImage, setCurrentImage] = useState(images[0])
 
-    const HandleNext = () => {
-        const index = images.indexOf(currentImage)
-        if(index < images.length - 1){
-            setCurrentImage(images[index + 1])
-        } else {
-            setCurrentImage(images[0])
-        }
-    }
-
-    const HandleBack = () => {
-        const index = images.indexOf(currentImage)
-        if(index > 0){
-            setCurrentImage(images[index - 1])
-        } else {
-            setCurrentImage(images[images.length - 1])
-        }
-    }
     return (
     <div className='landing-container'>
             <div className='content'>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Login.css';
-
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import db from '../../db/db.js';
 
 
 const Login = ({ onClose }) => {
     const [dataForm, setDataForm] = useState({
-            username: '',
             password: '',
-            email: ''
+            keyword: ''
         });
     
     const [error, setError] = useState('');
@@ -18,22 +18,58 @@ const Login = ({ onClose }) => {
         });
     };
 
-
-
     const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, password, email } = dataForm;
-    if (username === '' || password === '' || email === '') {
+    const { password, keyword } = dataForm;
+    if (password === '' || keyword === '') {
         setError('Please fill in all fields');
     } else {
         setError('');
-
-        onClose();
+        checkUser();
     }
     console.log(dataForm);
-    
     };
-
+    
+    const checkUser = async () => {
+        const userRef = collection(db, 'users');
+        const qEmail = query(userRef, where('email', '==', dataForm.keyword));
+        const qUsername = query(userRef, where('username', '==', dataForm.keyword));
+        
+        getDocs(qEmail)
+            .then((dataDb) => {
+                const user = dataDb.docs.map((userDb) => {
+                    return {id: userDb.id, ...userDb.data()};
+                });
+                console.log(user);
+                if (user.length > 0) {
+                    if (user[0].password === dataForm.password) {
+                        onClose();
+                    } else {
+                        setError('Password incorrect');
+                    }
+                } else {
+                    getDocs(qUsername)
+                        .then((dataDb) => {
+                            const user = dataDb.docs.map((userDb) => {
+                                return {id: userDb.id, ...userDb.data()};
+                            });
+                            console.log(user);
+                            if (user.length > 0) {
+                                if (user[0].password === dataForm.password) {
+                                    onClose();
+                                } else {
+                                    setError('Password incorrect');
+                                }
+                            } else {
+                                setError('User not found');
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                }
+            });
+    };
     
     return (
     <>
@@ -44,21 +80,11 @@ const Login = ({ onClose }) => {
                 <h2 className="login-title" >Login</h2>
                 {error && <p className="error">{error}</p>}
                 <div className="form-group">
-                    <label>Username</label>
+                    <label>Email o Username</label>
                     <input
                         type="text"
-                        name="username"
-                        value={dataForm.username}
-                        className='input-field'
-                        onChange={handleChangeInput}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={dataForm.email}
+                        name="keyword"
+                        value={dataForm.keyword}
                         className='input-field'
                         onChange={handleChangeInput}
                     />
