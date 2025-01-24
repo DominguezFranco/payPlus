@@ -64,7 +64,6 @@ const Register = ({onClose}) => {
         const nuevoUsuario = { name, email, password };
 
         setRegistros([...registros, nuevoUsuario]);
-       
 
 };
 
@@ -79,6 +78,7 @@ const Register = ({onClose}) => {
           <input
             type="text"
             id="name"
+            name="name"
             value={dataForm.name}
             onChange={handleChangeInput}
             required
@@ -89,6 +89,7 @@ const Register = ({onClose}) => {
           <input
             type="email"
             id="email"
+            name="email"
             value={dataForm.email}
             onChange={handleChangeInput}
             required
@@ -99,6 +100,7 @@ const Register = ({onClose}) => {
           <input
             type="password"
             id="password"
+            name="password"
             value={dataForm.password}
             onChange={handleChangeInput}
             required
@@ -109,6 +111,7 @@ const Register = ({onClose}) => {
           <input
             type="password"
             id="confirmPassword"
+            name="confirmPassword"
             value={dataForm.confirmPassword}
             onChange={handleChangeInput}
             required

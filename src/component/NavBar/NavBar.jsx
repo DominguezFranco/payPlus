@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './navbar.css'
-import Login from '../LogIn/LogIn'
+import Login from '../Login/Login'
 import Register from '../Register/Register'
 
 const NavBar = () => {

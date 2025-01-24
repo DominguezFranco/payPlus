@@ -16,7 +16,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    background: #ffffff;
+    background-color: var(--color-gris-oscuro);
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--color-dorado);
@@ -26,9 +26,9 @@
 }
 
 .login-title {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 600;
-    color: var(--color-gris-oscuro);
+    color: var(--color-dorado);
     margin-bottom: 20px;
     text-align: center;
 }
@@ -46,15 +46,16 @@
 }
 
 .form-group label {
-    font-size: 14px;
-    color: var(--color-gris-suave);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-negro);
     margin-bottom: 5px;
     display: block;
 }
 
 .input-field {
     width: 100%;
-    padding: 12px;
+    padding: 10px 6px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -71,7 +72,7 @@
     padding: 12px;
     border: none;
     border-radius: 6px;
-    background-color: #0056b3;
+    background-color: var(--color-dorado);
     color: var(--color-blanco);
     font-size: 16px;
     cursor: pointer;
@@ -90,6 +91,6 @@
     cursor: pointer;
     border : none;
     background-color: transparent;
-    color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
     transition: color 0.3s;
 }
