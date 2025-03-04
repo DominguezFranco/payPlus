@@ -80,7 +80,7 @@ const Login = ({ onClose }) => {
                 <h2 className="login-title" >Login</h2>
                 {error && <p className="error">{error}</p>}
                 <div className="form-group">
-                    <label>Email o Username</label>
+                    <label>Email o Nombre de usuario</label>
                     <input
                         type="text"
                         name="keyword"
@@ -90,7 +90,7 @@ const Login = ({ onClose }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Password</label>
+                    <label>Contraseña</label>
                     <input
                         type="password"
                         name="password"
