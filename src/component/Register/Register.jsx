@@ -32,20 +32,19 @@ const Register = ({onClose}) => {
             username: dataForm.username,
             email: dataForm.email,
             password: dataForm.password}
-
-
         console.log(dataForm);
+        
 
         const response = await validateForm(dataForm);
+        
 
         if (response.status === 'success') {
-            uploadUsers(users);
+          uploadUsers(users);
         }else {
             setError(response.message);
         }
+      }
 
-        
-};
       const uploadUsers = (newUser) => {
         const usersRef = collection(db, 'users');
         addDoc(usersRef, newUser)
