@@ -7,13 +7,13 @@ let userSchema = object({
     email: string().email().required(),
 })
 
-const validateForm = async (dataForm) => {
-    try {
-        await userSchema.validate(dataForm);
-        return {status:"success"}
-    }catch (error) {
-        return {status:"error", message: error.message}
-    }
-}
+// const validateForm = async (dataForm) => {
+//     try {
+//         await userSchema.validate(dataForm);
+//         return {status:"success"}
+//     }catch (error) {
+//         return {status:"error", message: error.message}
+//     }
+// }
 
-export default validateForm
+// export default validateForm
