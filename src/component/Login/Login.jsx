@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import db from '../../db/db.js';
+import { Link } from 'react-router';
 
 
 const Login = ({ onClose }) => {
@@ -99,7 +100,10 @@ const Login = ({ onClose }) => {
                         onChange={handleChangeInput}
                     />
                 </div>
-                <button type="submit" className="submit-btn">Submit</button>
+                <Link to="/wallet" className="submit-btn">
+                <button type="submit">Submit</button>
+
+                </Link>
             </form>
         </div>
     </>
